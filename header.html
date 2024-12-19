@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="path/to/your/bootstrap.css"> <!-- Link to Bootstrap CSS -->
+    <link rel="stylesheet" href="path/to/your/font-awesome.css"> <!-- Link to Font Awesome -->
+    <style>
+        /* Button Styles */
+        .btn {
+            background-color: #ff0000; /* Bright red background */
+            color: white; /* Text color */
+            padding: 10px 20px; /* Button padding */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Rounded corners */
+            transition: all 0.3s ease; /* Smooth transition */
+            cursor: pointer; /* Pointer cursor on hover */
+            box-shadow: 0 1px 4px rgba(255, 0, 0, 0.6); /* Red shadow effect */
+            text-decoration: none; /* Remove underline */
+            user-select: none; /* Prevent text selection */
+            font-size: 16px; /* Font size */
+            min-width: 100px; /* Minimum width */
+            display: inline-block; /* Allows width to adjust */
+            text-align: center; /* Center text */
+        }
+
+        /* Ensure the button stays red on hover */
+        .btn:hover {
+            background-color: #ff0000; /* Keep background red on hover */
+            color: white; /* Keep text color white on hover */
+            box-shadow: 0 4px 8px rgba(255, 0, 0, 0.6); /* Keep shadow red on hover */
+        }
+
+        /* Optional: Remove focus outline */
+        .btn:focus {
+            outline: none; /* Remove outline when focused */
+        }
+
+        /* Navigation Link Styles */
+        .navbar-nav > li > a {
+            color: #007BFF; /* Link color */
+            padding: 15px 20px; /* Padding for links */
+            transition: all 0.3s ease; /* Smooth transition */
+            text-decoration: none; /* Remove underline */
+            position: relative; /* Position for pseudo-elements */
+            display: inline-block; /* Make links behave like buttons */
+            border-radius: 5px; /* Rounded corners for links */
+        }
+
+        /* Hover effect for navigation links */
+        .navbar-nav > li > a:hover {
+            color: #fff; /* White text color on hover */
+            background-color: #FFA500; /* Orange background on hover */
+            text-shadow: none; /* Remove text shadow */
+        }
+
+        /* Click effect */
+        .navbar-nav > li > a:active {
+            transform: translateY(2px); /* Downward movement on click */
+        }
+
+        /* Adding a ripple effect on click */
+        .navbar-nav > li > a::after {
+            content: ""; /* Required for the effect */
+            position: absolute; /* Position absolute for ripple effect */
+            background: rgba(255, 255, 255, 0.5); /* Ripple color */
+            border-radius: 50%; /* Circular ripple */
+            width: 300%; /* Start width */
+            height: 300%; /* Start height */
+            left: 50%; /* Center horizontally */
+            top: 50%; /* Center vertically */
+            transform: translate(-50%, -50%) scale(0); /* Initial position and scale */
+            transition: transform 0.6s ease, opacity 0.6s ease; /* Transition for ripple */
+            opacity: 0; /* Initial opacity */
+        }
+
+        /* Show ripple effect on click */
+        .navbar-nav > li > a:active::after {
+            transform: translate(-50%, -50%) scale(1); /* Scale to full size */
+            opacity: 1; /* Full opacity */
+        }
+
+        /* Disable text selection */
+        .navbar-nav {
+            user-select: none; /* Prevent text selection */
+        }
+
+        .dropdown-menu {
+            background-color: #333; /* Dark background */
+            border: none; /* No border */
+            border-radius: 5px; /* Rounded corners */
+            padding: 10px; /* Padding */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow */
+        }
+
+        .dropdown-item {
+            display: block;
+            color: #fff; /* White text */
+            padding: 8px 16px; /* Padding */
+            text-decoration: none; /* No underline */
+            border: none; /* No border */
+            background: transparent; /* Transparent background */
+            width: 100%; /* Full width */
+            text-align: left; /* Align text to the left */
+        }
+
+        .dropdown-item:hover {
+            background-color: #444; /* Slightly lighter on hover */
+            color: #fff; /* White text on hover */
+        }
+
+        #adminButton {
+            background-color: #ff4c4c; /* Red button color */
+            color: #fff; /* Button text color */
+            border: none; /* No border */
+            cursor: pointer; /* Pointer cursor */
+        }
+
+        #adminButton:hover {
+            background-color: #cc0000; /* Darker red on hover */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav id="navigation_bar" class="navbar navbar-default">
+            <div class="container" style="padding-left: 10px;">
+                <div class="navbar-header">
+                    <button id="menu_slide" data-target="#navigation" aria-expanded="false" data-toggle="collapse" class="navbar-toggle collapsed" type="button"> 
+                        <span class="sr-only">Toggle navigation</span> 
+                        <span class="icon-bar"></span> 
+                        <span class="icon-bar"></span> 
+                        <span class="icon-bar"></span> 
+                    </button>
+                </div>
+
+                <div class="header_wrap d-flex align-items-center justify-content-start" style="width: 110%; height: 70px; margin-right: -100px;">
+                    <ul class="nav navbar-nav" style="display: flex; align-items: center; margin: 0; white-space: nowrap;">
+                        <li>
+                            <a href="index.html" style="display: flex; align-items: center; text-decoration: none; font-size: 20px; font-weight: bold; color: red;">
+                                Park sensör projesi
+                            </a>
+                        </li>
+                        <li><a href="index.html">AnaSayfa</a></li>
+                        <li><a href="Teknik.html" style="white-space: nowrap;">Teknik Detaylar</a></li>
+                        <li><a href="proje.html" style="white-space: nowrap;">Proje Süreçleri</a></li>
+                        <li><a href="Galeri.html" style="white-space: nowrap;">Galeri</a></li>
+                        <li><a href="sunum.html">Sunum ve Poster</a></li>
+                    </ul>
+                    <div class="login_btn"></div> 
+                    <div class="user_login" style="margin-left: auto;"></div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Your main content goes here -->
+    </main>
+
+    <script>
+        document.getElementById('adminButton')?.addEventListener('click', function() {
+            var adminMenu = document.getElementById('adminMenu');
+            adminMenu.style.display = adminMenu.style.display === 'block' ? 'none' : 'block';
+        });
+
+        window.addEventListener('click', function(event) {
+            if (!event.target.matches('#adminButton')) {
+                var adminMenu = document.getElementById('adminMenu');
+                if (adminMenu?.style.display === 'block') {
+                    adminMenu.style.display = 'none';
+                }
+            }
+        });
+    </script>
+
+    <script src="path/to/your/jquery.js"></script> <!-- Link to jQuery -->
+    <script src="path/to/your/bootstrap.js"></script> <!-- Link to Bootstrap JS -->
+</body>
+</html>

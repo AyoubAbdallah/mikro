@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunum ve Poster</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="assets/assets/images/favicon-icon/race.png">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet"> <!-- إضافة خط Roboto -->
+    <style>
+        /* Add your custom styles here */
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .contact-container {
+            max-width: 1200px; 
+            margin: 50px auto;
+            padding: 40px; 
+            background-color: #f5f5f5; 
+            border-radius: 10px; 
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap; 
+            justify-content: space-between; 
+        }
+
+        .form-container {
+            flex: 1; 
+            min-width: 300px; 
+            margin-right: 20px; 
+            padding: 30px; 
+            background-color: #ffffff; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+        }
+
+        h1, h2, h4 {
+            margin-bottom: 2px;
+            font-weight: 400;
+            color: #333; 
+        }
+
+        h4 {
+            font-family: 'Roboto', sans-serif; /* استخدام خط Roboto للعناوين */
+            font-size: 26px; /* زيادة حجم الخط */
+            color: #007BFF; /* تغيير لون العنوان */
+        }
+
+        /* The button to trigger the download */
+        .btn {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 15px 25px; 
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s; 
+            font-size: 18px; 
+            width: 100%; 
+            margin-top: 10px; 
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px); 
+        }
+
+        /* Style for the PDF display iframe */
+        #pdfViewer {
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+  
+  <div id="header-placeholder"></div>
+
+<script>
+    // Fetch and load the header content into the placeholder
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-placeholder').innerHTML = data;
+        })
+        .catch(error => console.error('Error loading header:', error));
+</script>
+
+<!-- Header -->
+<!-- Include your header here -->
+
+<div class="contact-container">
+  <h4 style="font-weight: bold;">Sunum</h4>
+  
+  <!-- Button to view the Google Drive PDF link -->
+  <button class="viewPdfBtn btn" data-drive-link="https://drive.google.com/file/d/1cG8kBeivDjhRSUK5eG78dKitK5Sv9rTH/view" data-pdf-name="sunum.pdf">PDF'yi görüntüle</button>
+  
+  <!-- Button to trigger the download -->
+  <button class="downloadBtn btn" data-pdf-file="assets/assets/images/MikroSunum.pdf">PDF'yi indir</button>
+  
+  <hr> <!-- Adding a horizontal line to separate sections -->
+  
+  <h4 style="font-weight: bold;">Rapor</h4>
+  
+  <!-- Button to view the Google Drive PDF link -->
+  <button class="viewPdfBtn btn" data-drive-link="https://drive.google.com/file/d/1baFr0-RccV-U_11afxwrdd9npOu3BUPW/view" data-pdf-name="rapor.pdf">PDF'yi görüntüle</button>
+  
+  <!-- Button to trigger the download -->
+  <button class="downloadBtn btn" data-pdf-file="assets/assets/images/rapor.pdf">PDF'yi indir</button>
+  
+  <hr> <!-- Adding a horizontal line to separate sections -->
+  
+  <h4 style="font-weight: bold;">Poster</h4>
+  
+  <!-- Button to view the Google Drive PDF link -->
+  <button class="viewPdfBtn btn" data-drive-link="https://drive.google.com/file/d/1hwQLCDUb7FbCPwcIK66URyyHswVTwz8A/view" data-pdf-name="poster.pdf">PDF'yi görüntüle</button>
+  
+  <!-- Button to trigger the download -->
+  <button class="downloadBtn btn" data-pdf-file="assets/assets/images/poster.pdf">PDF'yi indir</button>
+</div>
+
+<style>
+  /* General button styling */
+  .btn {
+    margin-bottom: 0;
+  }
+
+  /* Add spacing between each section (Sunum, Rapor, Poster) */
+  .contact-container h4 {
+    margin-top: 20px; /* Space above each section heading */
+  }
+
+  /* Optional: Space between the last button and the next heading */
+  .viewPdfBtn + .downloadBtn {
+    margin-bottom: 10px;
+  }
+</style>
+
+<script>
+  // Function to handle view PDF button click
+  function handleViewPdf(event) {
+    const driveLink = event.target.getAttribute("data-drive-link");
+    window.open(driveLink, "_blank");
+  }
+
+  // Function to handle download button click
+  function handleDownloadPdf(event) {
+    const pdfFile = event.target.getAttribute("data-pdf-file");
+    const link = document.createElement("a");
+    link.href = pdfFile; // Link to the PDF file
+    link.download = pdfFile; // The file name when downloaded
+    link.style.display = "none"; // Make sure the link is invisible
+    document.body.appendChild(link); // Add the link to the DOM
+    link.click(); // Trigger the click to download the file
+    document.body.removeChild(link); // Clean up by removing the link element
+  }
+
+  // Add event listeners to all "View PDF" buttons
+  document.querySelectorAll(".viewPdfBtn").forEach(button => {
+    button.addEventListener("click", handleViewPdf);
+  });
+
+  // Add event listeners to all "Download PDF" buttons
+  document.querySelectorAll(".downloadBtn").forEach(button => {
+    button.addEventListener("click", handleDownloadPdf);
+  });
+</script>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+
+</body>
+</html>

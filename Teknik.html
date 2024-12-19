@@ -1,0 +1,289 @@
+
+<!DOCTYPE HTML>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teknik Detaylar</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="assets/assets/images/favicon-icon/race.png">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .project-section, .table-section {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-section h2, .table-section h2 {
+            font-size: 28px;
+            color: #007BFF;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        table th {
+            background-color: #007BFF;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+
+<div id="header-placeholder"></div>
+
+<script>
+    // Fetch and load the header content into the placeholder
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-placeholder').innerHTML = data;
+        })
+        .catch(error => console.error('Error loading header:', error));
+</script>
+
+
+<!-- Proje Tanıtımı ve Amacı -->
+<div class="project-section">
+    <h2>Teknik Detaylar</h2>
+    <p style="font-size: 20px;">
+    <span style="color: red; font-weight: bold;">Mikroişlemci Yazılım Modeli:</span> <br>
+    Raspberry Pi 3 üzerinde Python tabanlı bir yazılım kullanılmıştır. <br>
+    Sensör verileri için Raspberry Pi GPIO kütüphanesiyle iletişim sağlanmıştır. <br>
+    Mesafe algılamada kullanılan algoritma: HC-SR04 ultrasonik sensör sinyal işleme. <br>
+   <span style="color: blue; font-weight: bold;">Çevre birimleri:</span> Raspberry Pi GPIO pinleri üzerinden ultrasonik sensörler bağlanmıştır. <br>
+    <span style="color: blue; font-weight: bold;">Çalışma mantığı:</span> Mesafeyi hesaplayan ve sürücüyü uyarı sesleriyle bilgilendiren bir algoritma. <br>
+</p>
+
+
+
+<p style="font-size: 20px;">
+  <span style="color: red; font-weight: bold;">Donanım Bileşenleri:</span> <br>
+  <span style="color: blue; font-weight: bold;">Raspberry Pi 3:</span> Sistemin merkezi kontrol birimi. <br>
+  <span style="color: blue; font-weight: bold;">HC-SR04 Ultrasonik Sensör:</span> Mesafe ölçümü için kullanılmıştır. <br>
+  <span style="color: blue; font-weight: bold;">LED ve Buzzer:</span> Görsel ve sesli uyarılar sağlamak için. <br>
+  <span style="color: blue; font-weight: bold;">Güç Kaynağı:</span> Raspberry Pi için 5V adaptör. <br>
+  <span style="color: blue; font-weight: bold;">Devre Tahtası:</span> Sensör ve LED/Buzzer gibi bileşenlerin kolayca bağlanmasını sağlar. <br>
+  <span style="color: blue; font-weight: bold;">SD kartı:</span> Raspberry Pi işletim sistemi ve proje dosyalarını depolamak için. <br>
+  <span style="color: blue; font-weight: bold;">Jumper kablosu:</span> Donanım bileşenlerini Raspberry Pi’nin GPIO pinlerine bağlamak için. <br>
+  <span style="color: blue; font-weight: bold;">Wifi:</span> İletişim sağlamak için. <br>
+  <span style="color: blue; font-weight: bold;">Dirençler (330Ω ve 10kΩ):</span> <br> LED'ler için uygun akım sınırlamasını sağlar. (330Ω) <br>
+  Ultrasonik sensör sinyallerinin düzenlenmesinde de kullanılır. (10kΩ) <br>
+  <span style="color: blue; font-weight: bold;">Klavye ve Fare:</span> Raspberry Pi’yi kurulum sırasında yapılandırmak için.
+</p>
+
+
+</div>
+
+<div class="project-section">
+<h2>Yazılımın Genel Yapısı:</h2>
+<p style="font-size: 20px;">
+<span style="color: red; font-weight: bold;">1. Python Programlama Dili:</span> Raspberry Pi'de GPIO pinlerini kontrol etmek için kullanılır. <br>
+<span style="color: red; font-weight: bold;">2. Kütüphaneler:</span> <br>
+<span style="color: blue; font-weight: bold;">RPi.GPIO:</span> GPIO pinlerini kontrol etmek için. <br>
+<span style="color: blue; font-weight: bold;">time:</span> Gecikme süreleri ve zaman ölçümleri için. <br>
+<span style="color: red; font-weight: bold;">3. Çalışma Mantığı:</span> <br>
+Ultrasonik sensör (HC-SR04) mesafe ölçümü yapar. <br>
+Ölçülen mesafeye göre <span style="color: green; font-weight: bold;">LED veya buzzer</span> ile sürücüye geri bildirim sağlar. <br>
+Eğer mesafe kritik bir değerin altına düşerse uyarı sesleri sıklaşır.
+    </p>
+    <h2>Kod Detayları ve Açıklamaları:</h2>
+    <p style="font-size: 20px;">
+    <span style="color: red; font-weight: bold;">1. Pin Tanımları</span> <br>
+<span style="color: blue; font-weight: bold;">TRIG ve ECHO Pinleri:</span> HC-SR04 ultrasonik sensörün giriş ve çıkış pinleri. <br>
+<span style="color: blue; font-weight: bold;">LED'ler (Yeşil, Sarı, Kırmızı):</span> Mesafeye göre yanacak LED'ler. <br>
+<span style="color: blue; font-weight: bold;">BUZZER:</span> Kritik mesafelerde sesli uyarı için kullanılan pin. <br>
+   <span style="color: red; font-weight: bold;">2. PWM Kullanımı </span> <br>
+PWM (Pulse Width Modulation) ile LED parlaklığını ve buzzer ses seviyesini kontrol ediyorsunuz. PWM sayesinde:
+
+LED'ler tam parlaklık veya düşük parlaklıkta çalışabilir.
+Buzzer sesi farklı yoğunluklarda çalınabilir. <br>
+<span style="color: red; font-weight: bold;">3. Mesafe Ölçümü</span> <br>
+TRIG pinine kısa bir tetikleme sinyali gönderilir. <br>
+ECHO pininden geri dönen sinyalin süresine göre mesafe hesaplanır. <br>
+<span style="color: blue; font-weight: bold;">Hesaplama:</span> <pre>distance = (signal_time * 34300) / 2</pre> 
+</p> <p style="font-size: 20px;"><span style="color: red; font-weight: bold;">4. LED ve Buzzer Kontrolü</span> <br>
+<span style="color: blue; font-weight: bold;">Mesafe aralıklarına göre farklı eylemler gerçekleştiriliyor:</span> <br>
+< 10 cm: Kırmızı LED yanar, buzzer çalar. <br>
+10–25 cm: Sarı LED yanar. <br>
+25–100 cm: Yeşil LED yanar. <br>
+> 100 cm: Tüm LED'ler ve buzzer kapatılır. <br>
+<span style="color: red; font-weight: bold;">5. Programı Sonlandırma</span> <br>
+Kullanıcı, klavyeden kesme <span style="color: red; font-weight: bold;">(Ctrl+C)</span> ile programı durdurabilir.
+Ayrıca, mesafe 100 cm'yi aştığında program kendiliğinden duruyor.</p>
+    <h2>Yazılım Kodları:</h2>
+    <p style="font-size: 20px;">
+        Python ile yazılan temel mesafe ölçüm kodu şu şekildedir:
+    </p>
+    <pre style="font-size: 16px; background-color: #f4f4f4; padding: 10px; border: 1px solid #ccc; overflow-x: auto; white-space: pre-wrap;">
+import RPi.GPIO as GPIO
+import time
+
+# Uyarıları devre dışı bırak ve GPIO modunu BCM olarak ayarla
+# BCM: GPIO pinlerini pin numaralarına göre kullanmayı sağlar.
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BCM)
+
+# Pinlerin tanımlanması (TRIG, ECHO sensör için; LED'ler ve buzzer kontrol için)
+TRIG = 4
+ECHO = 18
+GREEN = 17
+YELLOW = 27
+RED = 22
+BUZZER = 23  # Buzzer için pin tanımlaması
+
+# Giriş/Çıkış pinleri ayarlanıyor
+GPIO.setup(TRIG, GPIO.OUT)
+GPIO.setup(ECHO, GPIO.IN)
+GPIO.setup(GREEN, GPIO.OUT)
+GPIO.setup(YELLOW, GPIO.OUT)
+GPIO.setup(RED, GPIO.OUT)
+GPIO.setup(BUZZER, GPIO.OUT)  # Buzzer pini çıkış olarak ayarlandı
+
+# LED'ler ve buzzer için PWM (Pulse Width Modulation) başlatılıyor
+# PWM, LED parlaklığı ve buzzer ses frekansını kontrol etmek için kullanılıyor.
+pwm_green = GPIO.PWM(GREEN, 1000)  # Yeşil LED için PWM, 1kHz
+pwm_yellow = GPIO.PWM(YELLOW, 1000)  # Sarı LED için PWM
+pwm_red = GPIO.PWM(RED, 1000)  # Kırmızı LED için PWM
+pwm_buzzer = GPIO.PWM(BUZZER, 1000)  # Buzzer için PWM
+
+# PWM başlangıcı, %0 parlaklık/ses (kapalı)
+pwm_green.start(0)
+pwm_yellow.start(0)
+pwm_red.start(0)
+pwm_buzzer.start(0)
+
+# Yeşil LED'i açan fonksiyon
+def green_light():
+    pwm_green.ChangeDutyCycle(100)  # Yeşil LED tam parlaklıkta
+    pwm_yellow.ChangeDutyCycle(0)   # Sarı LED kapalı
+    pwm_red.ChangeDutyCycle(0)      # Kırmızı LED kapalı
+    pwm_buzzer.ChangeDutyCycle(0)   # Buzzer kapalı
+
+# Sarı LED'i açan fonksiyon
+def yellow_light():
+    pwm_green.ChangeDutyCycle(0)    # Yeşil LED kapalı
+    pwm_yellow.ChangeDutyCycle(100) # Sarı LED tam parlaklıkta
+    pwm_red.ChangeDutyCycle(0)      # Kırmızı LED kapalı
+    pwm_buzzer.ChangeDutyCycle(0)   # Buzzer kapalı
+
+# Kırmızı LED'i açan fonksiyon
+def red_light():
+    pwm_green.ChangeDutyCycle(0)    # Yeşil LED kapalı
+    pwm_yellow.ChangeDutyCycle(0)   # Sarı LED kapalı
+    pwm_red.ChangeDutyCycle(100)    # Kırmızı LED tam parlaklıkta
+    pwm_buzzer.ChangeDutyCycle(50)  # Buzzer %50 yoğunlukta çalar (orta seviye ses)
+
+# Tüm LED'leri ve buzzer'ı kapatan fonksiyon
+def turn_off_all():
+    pwm_green.ChangeDutyCycle(0)    # Yeşil LED kapalı
+    pwm_yellow.ChangeDutyCycle(0)   # Sarı LED kapalı
+    pwm_red.ChangeDutyCycle(0)      # Kırmızı LED kapalı
+    pwm_buzzer.ChangeDutyCycle(0)   # Buzzer kapalı
+
+# Ultrasonik sensörle mesafe ölçümü yapan fonksiyon
+def get_distance():
+    # TRIG pinine kısa bir tetik sinyali gönder
+    GPIO.output(TRIG, GPIO.HIGH)
+    time.sleep(0.00001)  # 10 mikro saniye tetik sinyali
+    GPIO.output(TRIG, GPIO.LOW)
+
+    # ECHO pinindeki sinyalin gidiş-dönüş süresini ölç
+    while GPIO.input(ECHO) == GPIO.LOW:
+        start = time.time()  # Sinyal başlangıç zamanı
+    while GPIO.input(ECHO) == GPIO.HIGH:
+        end = time.time()  # Sinyal bitiş zamanı
+
+    # Sinyal süresine göre mesafeyi hesapla (cm)
+    signal_time = end - start
+    distance = (signal_time * 34300) / 2  # Mesafe = zaman * ses hızı / 2
+    return distance
+
+# Ana döngü (program burada sürekli çalışır)
+try:
+    while True:
+        distance = get_distance()  # Mesafeyi ölç
+        print("Distance: %.1f cm" % distance)  # Ölçülen mesafeyi ekrana yazdır
+
+        # Mesafeye göre LED'leri ve buzzer'ı kontrol et
+        if distance < 10:
+            red_light()  # 10 cm'den az mesafe: Kırmızı LED ve buzzer aktif
+        elif 10 <= distance < 25:
+            yellow_light()  # 10-25 cm arası: Sarı LED aktif
+        elif 25 <= distance <= 100:
+            green_light()  # 25-100 cm arası: Yeşil LED aktif
+        else:
+            turn_off_all()  # 100 cm'den büyük mesafede: Tüm uyarılar kapalı
+
+        # Eğer mesafe 100 cm'yi geçerse programdan çık
+        if distance > 100:
+            print("Distance exceeds limit. Stopping the program.")
+            break  # Döngüden çık
+
+        time.sleep(0.05)  # Ölçümler arasında 50ms bekle
+
+# Kullanıcı programı manuel durdurursa (Ctrl+C)
+except KeyboardInterrupt:
+    print("Program stopped by user.")
+
+# Program sonlandığında kaynakları serbest bırak
+finally:
+    pwm_green.stop()  # Yeşil LED PWM durdur
+    pwm_yellow.stop()  # Sarı LED PWM durdur
+    pwm_red.stop()  # Kırmızı LED PWM durdur
+    pwm_buzzer.stop()  # Buzzer PWM durdur
+    GPIO.cleanup()  # GPIO pinlerini temizle
+    </pre>
+</div>
+
+
+
+        </thead>
+        <tbody>
+         
+        </tbody>
+    </table>
+</div>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+</body>
+</html>

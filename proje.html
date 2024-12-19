@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proje Süreçleri</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="assets/assets/images/favicon-icon/race.png">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .project-section, .table-section {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-section h2, .table-section h2 {
+            font-size: 28px;
+            color: #007BFF;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        table th {
+            background-color: #007BFF;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+
+<div id="header-placeholder"></div>
+
+<script>
+    // Fetch and load the header content into the placeholder
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-placeholder').innerHTML = data;
+        })
+        .catch(error => console.error('Error loading header:', error));
+</script>
+
+
+<!-- Proje Tanıtımı ve Amacı -->
+<div class="project-section">
+    <h2>Proje Süreçleri</h2>
+    <p style="font-size: 20px;">
+<span style="color: red; font-weight: bold;">1. Başlangıç Aşaması</span> <br>
+Proje fikri belirlendikten sonra, gereksinimler ve hedefler tanımlandı. Kullanıcı ihtiyaçları ve projede sağlanmak istenen işlevler netleştirildi.
+<br><span style="color: red; font-weight: bold;">2. Donanım Seçimi</span> <br>
+Uygun donanım bileşenleri seçildi. Raspberry Pi 3 modelinin, ultrasonik sensörlerin, LED'lerin ve diğer gerekli bileşenlerin kullanılması kararlaştırıldı.
+<br><span style="color: red; font-weight: bold;">3. Devre Tasarımı</span> <br>
+Donanım bileşenlerinin nasıl bağlanacağı ve hangi pinlerin kullanılacağı belirlenerek devre tasarımı yapıldı.
+<br><span style="color: red; font-weight: bold;">4. Yazılım Geliştirme</span> <br>
+Python dili ile sensörlerin verileri toplayıp işleyen yazılım kodu geliştirildi. Ultrasonik sensörlerin mesafe ölçümleri ve LED, buzzer kontrolü sağlandı.
+<br><span style="color: red; font-weight: bold;">5. Prototip Oluşturma</span> <br>
+İlk prototip tasarlandı ve üzerinde testler yapıldı. Bu aşamada donanım bileşenleri birleştirilip montaj işlemi tamamlandı.
+<br><span style="color: red; font-weight: bold;">6. Test Aşaması</span> <br>
+Sensörlerin doğruluğu ve sistemin genel işleyişi test edildi. Yazılımda gerekli iyileştirmeler yapıldı ve donanımın doğru çalıştığı doğrulandı.
+<br><span style="color: red; font-weight: bold;">7. Veri Aktarımı ve İletişim</span> <br>
+Sistemin verileri iletmesi için Wi-Fi bağlantısı kuruldu ve veri aktarımı için yazılım entegrasyonu sağlandı.
+<br><span style="color: red; font-weight: bold;">8. Son Testler ve Performans Kontrolü</span> <br>
+Sistem tamamlandığında son testler yapılarak tüm bileşenlerin uyumlu çalıştığı doğrulandı.
+<br><span style="color: red; font-weight: bold;">9. Dokümantasyon</span> <br>
+Projenin tüm aşamaları, kullanılan bileşenler ve yazılım kodları ayrıntılı bir şekilde belgelendi.</p> 
+<hr>
+    <p style="font-size: 20px;">
+    <span style="color: red; font-weight: bold;">Karşılaşılan Zorluklar ve Çözümler:</span> <br>
+    <span style="color: red; font-weight: bold;"> Zorluk:</span> Ultrasonik sensörlerin kararlı sonuç vermemesi.
+    <span style="color: blue; font-weight: bold;"> Çözüm:</span> Sinyal işleme algoritmalarını optimize etmek.
+<span style="color: red; font-weight: bold;"> <br>Zorluk:</span> Raspberry Pi’nin GPIO pinlerinde bağlantı sorunları.
+<span style="color: blue; font-weight: bold;"> Çözüm:</span> Pin yerleşimini yeniden düzenleyip temas kontrolü yapmak. <br>
+<span style="color: red; font-weight: bold;"> Zorluk:</span> Yazılımda gecikmelerin önlenmesi.
+<span style="color: blue; font-weight: bold;"> Çözüm:</span> Kod optimizasyonu ve algoritma geliştirme. <br>
+<span style="color: red; font-weight: bold;"> Zorluk:</span> Donanım bağlantı sorunları.
+<span style="color: blue; font-weight: bold;"> Çözüm:</span> Jumper kablolarının sağlam şekilde bağlanması. <br>
+<span style="color: red; font-weight: bold;"> Zorluk:</span> Enerji tüketimi.
+<span style="color: blue; font-weight: bold;"> Çözüm:</span> Yüksek kaliteli güç adaptörü kullanılması. <br>
+<span style="color: red; font-weight: bold;"> Zorluk:</span> Kablolama karmaşası.
+<span style="color: blue; font-weight: bold;"> Çözüm:</span> Kabloların etiketlenmesi ve düzenli yerleştirilmesi. <br>
+</p>
+</div>
+
+
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+</body>
+</html>
